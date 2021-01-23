@@ -1,0 +1,44 @@
+
+package list;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Stack;
+import java.util.List;
+import java.util.Vector;
+
+
+public class stack {
+    void fun()
+    {
+        Stack<Integer> obj1=new Stack<>();
+        System.out.println(obj1.empty());
+        obj1.push(4);
+        obj1.addElement(5);
+        obj1.push(7);
+        System.out.println(obj1);
+//        obj1.
+        obj1.pop();
+        System.out.println(obj1);
+        
+        obj1.push(Integer.SIZE);
+        
+        Iterator it=obj1.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+        for(int a : obj1)
+        {
+            System.out.println(a);
+        }
+        System.out.println("The peek of the stack is "+obj1.peek());
+        System.out.println(obj1.empty()+"\n"+obj1);
+        
+        System.out.println(obj1.search(4));
+        obj1.insertElementAt(6, 2);
+        System.out.println(obj1);
+        System.out.println(obj1.firstElement() +" # "+ obj1.lastElement());
+      
+       
+    }
+}
