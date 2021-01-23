@@ -1,0 +1,20 @@
+
+package iostream;
+
+import java.io.Console;
+import java.io.IOException;
+
+
+public class systemconsole {
+    
+    void fun1() throws IOException{
+    
+        Console c=System.console();
+        String s;
+        if(c!=null)
+        {  s=c.readLine();
+           System.out.println(s);}
+        else System.out.println("Its a null pointer exception");
+    }
+    
+}
