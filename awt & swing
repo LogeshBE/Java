@@ -1,0 +1,161 @@
+    
+package java6;
+import java.io.*;
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Java6  {
+    
+    public static void main(String[] args) {  
+    Frame f=new Frame("ActionListener Example");  
+     TextField tf=new TextField();  
+    tf.setBounds(50,50, 150,20);  
+    Button b=new Button("Click Here");  
+    b.setBounds(50,100,60,30); 
+
+  
+    b.addActionListener(new ActionListener()
+    {
+        
+    public void actionPerformed(ActionEvent e){  
+            tf.setText("Welcome to Javatpoint.");  
+    }  
+    } );
+    f.add(b);
+    f.add(tf);  
+    f.setSize(400,400);  
+    f.setLayout(null);  
+    f.setVisible(true);   
+}  
+
+}
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+package java3;
+
+import java.io.*;
+
+import java.awt.*;
+
+public class Java3 extends Frame{
+    
+       public static void main(String[] args)
+       {
+           Frame f=new Frame("This is a frame");
+           f.setSize(400,200);
+           f.setLayout(new FlowLayout(FlowLayout.RIGHT));
+           f.setVisible(true);  
+        List l=new List(4,false);
+          l.add("LOgu");
+          l.add("LOgesh");
+          f.add(l);
+          
+   }
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+package java7;
+import java.io.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.*;
+
+public class Java7 {
+
+
+    public static void main(String[] args) {
+        Frame f=new Frame(" color");
+        Panel p=new Panel();
+        Button b=new Button("click");
+        Button b2=new Button("C@");
+        //Label l=new Label();
+        TextField l=new TextField();
+        l.setBounds(300,300,300,300);
+        b.setBounds(100,100,100,100);
+        f.setLayout(null);
+        f.setBackground(Color.yellow);
+        f.setSize(500,500);
+          b.addActionListener(new ActionListener()
+    {
+        
+    public void actionPerformed(ActionEvent e){
+        
+        //String c="LOgesh";
+      //  if(e.getSource()==b){
+            l.setText("logesh");
+       // }
+    }
+    
+    } );
+        f.add(b);
+        f.add(l);
+        f.setVisible(true);
+    }
+    
+}
+------------------------------------------------------------------------------------------------------------------------------
+
+
+package java9;
+
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class Java9 {
+
+
+    public static void main(String[] args) {
+       Frame f=new Frame();
+       ImageIcon bird=new ImageIcon("Phoenix-Bird-HD-Image.jpg");
+       Button b=new Button("click");
+      // b.setActionCommand();
+      // b.setBackground(Color.blue);
+       b.setBounds(100,100,100,50);
+       Label l=new Label();
+       f.setSize(500,500);
+        f.setBackground(Color.red);
+       f.setLayout(null);
+       f.setVisible(true);   
+       f.add(b);
+        
+      
+       b.addActionListener(new ActionListener()
+       {
+           public void  actionPerformed(ActionEvent e){
+                   String a= "5"; 
+                   Frame f2=new Frame();
+                   f2.setLayout(null);
+                   f2.setSize(300,300);
+                    f2.setBackground(Color.yellow);
+                   f2.setVisible(true);
+                   TextField l=new TextField();
+                   TextField t=new TextField();
+                   l.setBounds(50,50,100,50);
+                   t.setBounds(100,100,100,50);
+                    l.setText(a);
+                    int b=Integer.valueOf(a);
+                    String c=String.valueOf(b+5);
+                    t.setText(c);
+                    f2.add(t);
+                    f2.add(l);
+                    f.add(f2);
+                 
+                  System.out.print(a);}}
+           );
+       
+       }
+       
+    }
+    
+
