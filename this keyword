@@ -1,0 +1,31 @@
+ 
+package keythis;
+
+
+public class Keythis {
+     int a=9,b=8;
+    Keythis(int a,int b)
+    {   
+        this(100,200,300);
+        System.out.println("The a value is "+this.a);
+        this.a=a;
+        this.b=b;
+    }
+    Keythis(int x,int y,int z)
+    {
+        System.out.println("The x = "+ x); 
+        System.out.println("The y = "+ y); 
+        System.out.println("The z = "+ z); 
+    }
+    void fun1()
+    {   
+        System.out.println("The a = "+ a);
+        System.out.println("The b = "+ b);        
+    }
+    public static void main(String[] args) {
+        Keythis obj=new Keythis(10,20);
+        obj.fun1();
+        breakandcontinue obj2=new breakandcontinue();
+        obj2.fun2();     
+    }
+}
