@@ -1,0 +1,49 @@
+
+package iostream;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class bufferedreader {
+    
+     void consoleread() throws IOException{
+        
+//        InputStreamReader isr=new InputStreamReader(System.in);
+//        BufferedReader obj1=new BufferedReader(isr);
+        
+        BufferedReader obj1=new BufferedReader(new InputStreamReader(System.in));
+         
+        String a=obj1.readLine();                      //readLine()-is used to get the i/p as String 
+        System.out.println("The String a is "+a);
+        
+        int num=Integer.parseInt(obj1.readLine());
+        System.out.print("The num is " + num +"\n");
+        
+        float num2=Float.parseFloat(obj1.readLine());
+        System.out.println("The float value is "+num2);
+        
+        int b=obj1.read();                             //read()-is used to get the single character as i/p
+                                                      // its return type is integer i.e ASCII number .so it only stores the int variable
+                                                    //It should type cast into character to obtain actual value eg.char(51)=3            
+          obj1.skip(1);                     //in this case when we click the enter its also one charcter so that its assign to b2
+                                           //to avoid this we skip that character,by using skip(no. of character to skip) -method
+          int b2=obj1.read();
+        System.out.println("b is "+b);
+        System.out.println("b2 is " +b2);
+        System.out.println("b char is "+(char)b +" b2 char is "+(char)b2); 
+    }
+     
+     void fileread() throws FileNotFoundException, IOException
+     {
+         FileReader fr=new FileReader("E:\\java program\\sample_files\\sampledoc1.txt");
+         BufferedReader br=new BufferedReader(fr);
+         
+         int s;
+         while((s=br.read())!=-1) System.out.print((char)s);     // -1 indicate the end of file . read() method reads single charecter and return into ascii code 
+         
+     }
+   
+}
