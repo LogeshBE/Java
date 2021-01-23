@@ -1,0 +1,220 @@
+
+package java10;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+
+
+public class Java10 {
+    
+    Frame f,f2;
+
+    public static void main(String[] args) {
+        Frame f=new Frame("this is frame");
+        Label l=new Label("Chicken Stall Billing & info System");
+         Font ft = new Font("font",Font.BOLD,40);
+         l.setForeground(Color.red);
+         l.setFont(ft);
+         Canvas c=new Canvas();
+         c.setBackground(Color.black);
+         c.setBounds(0,100,1000,5);
+        f.setBackground(Color.lightGray);
+        //f.setSize(1000,1000);
+        f.setMaximizedBounds(new Rectangle(0,0 , 1000,700));
+        f.setLayout(null);
+       l.setBounds(150,10,660,90); 
+       Button b=new Button("Upload info");
+       b.setBounds(850,50,90,40);
+       b.setBackground(Color.MAGENTA);
+       Label l2=new Label("Availabe weight(kg) of country hen in stall:");
+       l2.setBounds(20,164,240,20);
+       TextField t1=new TextField(10);
+       t1.setBounds(270,164,100 ,25);
+       Label l3=new Label("Available meal Rate weight(KG)");
+       l3.setBounds(20,200,200,12);
+       Label l4=new Label("of country hen in stall");
+       l4.setBounds(50, 212,200, 20);
+        Label l5=new Label("Stall Stack information");
+         Font ft2 = new Font("font",Font.ITALIC,25);
+         l5.setForeground(Color.blue);
+          l5.setFont(ft2);
+          l5.setBounds(370,110,350,30);
+       TextField t2=new TextField(10);
+       t2.setBounds(270,200,100 ,25);
+       Label l6=new Label("Availabe weight(kg) of Broiller hen in stall:");
+       l6.setBounds(500,164,230,20);
+         TextField t3=new TextField(10);
+       t3.setBounds(750,164,100 ,25);
+       Label l7=new Label("Available meal Rate weight(KG)");
+       l7.setBounds(500,200,200,12);
+       Label l8=new Label("of Broiller hen in stall");
+       l8.setBounds(530, 212,200, 20);
+        TextField t4=new TextField(10);
+       t4.setBounds(750,200,100 ,25);
+        Canvas c2=new Canvas();
+         c2.setBackground(Color.gray);
+         c2.setBounds(0,250,1000,1);
+          Label l9=new Label("Customer Purchase information");
+         Font ft3 = new Font("font",Font.ITALIC,25);
+         l9.setForeground(Color.blue);
+          l9.setFont(ft3);
+          l9.setBounds(300,260,400,30);
+          Label l10=new Label("Country Hen");
+         Font ft4 = new Font("font",Font.BOLD,20);
+         l10.setForeground(Color.black);
+          l10.setFont(ft4);
+          l10.setBounds(20,300,150,30);
+       Label l11=new Label("total weight(kg):");
+       l11.setBounds(20,350,120,14);
+        TextField t5=new TextField(10);
+       t5.setBounds(150,350,100 ,20);
+           Label l12=new Label("meat Weight:");
+       l12.setBounds(20,400,120,14);
+        TextField t6=new TextField(10);
+       t6.setBounds(150,400,100 ,20);
+         Label l13=new Label("Price for Total weight:");
+       l13.setBounds(300,350,130,14);
+       TextField t7=new TextField(10);
+       t7.setBounds(450,350,100,20);
+           Button b2=new Button("Calculate");
+       b2.setBounds(300,400,200,40);
+       b2.setBackground(Color.orange);
+       Button b3=new Button("Payment Received");
+       b3.setBackground(Color.GREEN);
+       b3.setBounds(600,350,120,50);
+       Label l14=new Label("Broiller Hen");
+         Font ft5 = new Font("font",Font.BOLD,20);
+         l14.setForeground(Color.black);
+          l14.setFont(ft5);
+          l14.setBounds(20,450,150,30);
+          Label l15=new Label("total weight(kg):");
+       l15.setBounds(20,500,120,14);
+        TextField t8=new TextField(10);
+       t8.setBounds(150,500,100 ,20);
+           Label l16=new Label("meat Weight:");
+       l16.setBounds(20,550,120,14);
+        TextField t9=new TextField(10);
+       t9.setBounds(150,550,100 ,20);
+         Label l17=new Label("Price for Total weight:");
+       l17.setBounds(300,500,130,14);
+       TextField t10=new TextField(10);
+       t10.setBounds(450,500,100,20);
+        Label l18=new Label("Price for meat Weight:");
+       l18.setBounds(300,550,130,14);
+        TextField t11=new TextField(10);
+       t11.setBounds(450,550,100 ,20);
+          Button b4=new Button("Calculate");
+            b4.setBackground(Color.orange);
+       b4.setBounds(600,500,120,25);
+          Button b5=new Button("Calculate");
+            b5.setBackground(Color.orange);
+       b5.setBounds(600,550,120,25);
+          Button b6=new Button("Payment Recived");
+          b6.setBackground(Color.GREEN);
+       b6.setBounds(800,500,150,25);
+          Button b7=new Button("Payment Recived");
+          b7.setBackground(Color.GREEN);
+       b7.setBounds(800,550,150,25);
+          Canvas c3=new Canvas();
+         c3.setBackground(Color.black);
+         c3.setBounds(0,690,1000,1000);
+            Canvas c4=new Canvas();
+         c4.setBackground(Color.black);
+         c4.setSize(13,700);
+           Canvas c5=new Canvas();
+         c5.setBackground(Color.black);
+        c5.setBounds(985,0,1000,700);
+         Label l19=new Label("--Created by 'S.LOGESH' (B.E)");
+         Font ft6 = new Font("font",Font.BOLD,12);
+         l19.setForeground(Color.red);
+         l19.setFont(ft6);
+         l19.setBounds(750,665,200,30);
+       f.add(l);
+        f.add(c);    
+        f.add(b);
+        f.add(l2);
+        f.add(t1);
+        f.add(l3);
+        f.add(l4);
+        f.add(l5);
+        f.add(t2);
+        f.add(l6);
+        f.add(t3);
+        f.add(l7);
+        f.add(l8);
+        f.add(t4);
+        f.add(c2);
+        f.add(l9);
+        f.add(l10);
+        f.add(l11);
+        f.add(t5);
+        f.add(l12);
+        f.add(t6);
+        f.add(l13);
+        f.add(t7);
+        f.add(b2);
+        f.add(b3);
+        f.add(l14);
+        f.add(l15);
+        f.add(t8);
+        f.add(l16);
+        f.add(t9);
+        f.add(l17);
+        f.add(t10);
+        f.add(l18);
+        f.add(t11);
+        f.add(b4);
+        f.add(b5);
+        f.add(b6);
+        f.add(b7);
+        f.add(c3);
+        f.add(c4);
+        f.add(c5);
+        f.add(l19);
+        f.setVisible(true);
+        Java10 obj=new Java10();
+         b.addActionListener(new ActionListener()
+       {
+           public void  actionPerformed(ActionEvent e){
+               obj.upload_info();
+               
+           }
+       });
+       
+        
+    }
+    
+    public void upload_info()
+    { Frame f2=new Frame("Upload info");
+      f2.setBackground(Color.yellow);
+      f2.setLayout(new FlowLayout());
+      f2.setSize(250,400);
+      Button bb1=new Button("price of Broiler hen");
+      Button bb2=new Button("price of Country hen");
+      Button bb3=new Button("add country hen stoke");
+      Button bb4=new Button("Sub Country hen stoke");
+      Button bb5=new Button("add Broiler hen stoke");
+      Button bb6=new Button("sub Broiler hen stoke");
+       bb6.addActionListener(new ActionListener()
+       {
+           public void  actionPerformed(ActionEvent e){
+              f2.dispose();
+               
+           }
+       });
+      f2.add(bb1);
+      f2.add(bb2);
+      f2.add(bb3);
+      f2.add(bb4);
+      f2.add(bb5);
+      f2.add(bb6);
+      f2.setVisible(true); 
+      
+      
+    }
+    
+    
+}
