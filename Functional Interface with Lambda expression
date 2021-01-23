@@ -1,0 +1,48 @@
+
+package functional_interface_with_lambda;
+
+@FunctionalInterface
+interface logu1
+{
+    void fun1();
+    default void fun2(){
+        System.out.println("This is Default function");
+    }
+    static void fun3()
+    {
+        System.out.println("This is satatic function");
+    }
+}
+@FunctionalInterface
+interface logu2{
+    void fun1(int a,int b);
+}
+@FunctionalInterface
+interface logu3{
+    int fun1(int a);
+}
+
+public class Functional_interface_with_lambda {
+   
+    public static void main(String[] args) {
+        
+        logu1 obj1=()->System.out.println("Welcome Logesh");
+        obj1.fun1();
+        obj1.fun2();
+        logu1.fun3();
+        logu2 obj2=(a,b)->System.out.println(a+b);
+        obj2.fun1(4, 6);
+        logu3 obj3= a -> a+a;
+//        logu3 obj3= a -> {return a+a;};
+        System.out.println(obj3.fun1(6));
+        
+        Runnable obj4= () -> { for(int i=1;i<=5;System.out.println(i),i++)
+                             {try{Thread.sleep(400);}catch(Exception e){ System.out.println(e);}}
+                            };
+        Thread obj5=new Thread(obj4);
+//        obj4.run();
+        obj5.start();
+        for(int i=6;i<=10;System.out.println(i),i++);
+    }
+    
+}
