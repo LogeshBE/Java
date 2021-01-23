@@ -1,0 +1,20 @@
+
+package setcollection;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+
+public class linkedhashset {
+    void fun(){
+        
+        Set lhs=new LinkedHashSet();
+        lhs.add("Logesh");
+        lhs.add("Logu");
+        lhs.add("Bharani");
+        lhs.add(3);
+        lhs.add(2);
+        System.out.println(lhs); //underlying ds = linked list + hash table -- insertion order is maintained
+        
+    }
+}
