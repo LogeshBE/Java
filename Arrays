@@ -1,0 +1,52 @@
+
+package array;
+
+
+public class Array {
+    
+    static void fun1(int k)
+    {   System.out.println(k);
+    }
+    void fun3(int... list)
+    {   System.out.println("Length of the list is "+list.length);
+    }
+  
+    public static void main(String[] args) {
+        int[] a=new int[3];
+        a[0]=1;
+        a[1]=2;
+        a[2]=3;
+        System.out.println("Length of a is "+a.length);
+        int[] b=new int[]{1,2,3};
+        int[] c={1,2,3};
+        int d[]={1,2,3};
+        for(int x:a)
+        {  System.out.println("a="+x);
+        }
+        fun1(6); 
+        Array obj=new Array();
+        obj.fun3(1,2,3,4,5);  
+    }
+    
+}
+-------------------------------------------------------------------------------------------------
+
+
+package array;
+
+
+public class array1 {
+      int[][] a=new int[2][2];
+      int[][] b=new int[][]{
+                              {2,2},{3,5}
+                            };
+      int c[][]={{1,2},{1,2}};
+      int d[][];
+      int[][][] x=new int[][][]{
+                                  {  {1,2},{1,2}
+                                  },
+                                  {  {1,2},{1,2}
+                                  }
+                                };
+    
+}
