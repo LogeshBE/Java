@@ -1,0 +1,63 @@
+
+package arraylist2d;
+import java.util.*;
+
+public class Arraylist2d {
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n,z=0;
+        SortedSet<Integer> set=new TreeSet<>();
+        ArrayList<ArrayList<Object>> arr=new ArrayList<>(n=s.nextInt());
+        for(int i=0;i<n;i++ ){
+            arr.add(new ArrayList<>());
+            for(int j=0;j<2;j++){
+                if(i<n/2){
+                if(j%2==0){
+                System.out.println("Enter the value for i = "+i+" j = "+j);
+                arr.get(i).add(s.nextInt());
+//                s.nextLine();
+                set.add((int)arr.get(i).get(j));
+                }
+                else{
+                    System.out.println("->Enter the value for i = "+i+" j = "+j);
+                    arr.get(i).add(s.nextLine());
+                    arr.get(i).set(j,"-");
+                }
+                }
+                else{
+                if(j%2==0){
+                System.out.println("Enter the value for i = "+i+" j = "+j);
+                arr.get(i).add(s.nextInt());
+//                s.nextLine();
+                set.add((int)arr.get(i).get(j));
+                }
+                else{
+                    System.out.println("Enter the value for i = "+i+" j = "+j);
+                    arr.get(i).add(s.nextLine());
+                }
+                }
+                
+            }
+        }
+//        for(int i=0;i<n;i++,System.out.println()){
+//        for(int j=0;j<n;j++){
+//           System.out.print(arr.get(i).get(j)+" ");
+//           }
+//        }
+        System.out.println(set);
+        int[] a=new int[set.size()];
+        for(int x : set) {
+            a[z]=x;
+            z++;
+        }
+//        System.out.println(arr);
+        for(int i=0;i<set.size();i++){
+            for(int j=0;j<n;j++){
+                if(a[i]==(int)arr.get(j).get(0))
+                    System.out.print(arr.get(j).get(1)+" ");
+            }
+        }
+    }
+    
+}
