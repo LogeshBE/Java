@@ -1,0 +1,32 @@
+package armstrong;
+
+import java.util.Scanner;
+
+public class Armstrong {
+         int cube(int a)
+     {  System.out.println(a=a*a*a);
+         return a;
+     }
+    public static void main(String[] args) {
+     
+        Scanner s=new Scanner(System.in);
+        Armstrong obj=new Armstrong();
+        int res2,n,rev=0,rem,arm=0,temp;
+        n=s.nextInt();
+        res2=n;
+        while(n!=0)
+        {
+            rem=n%10;
+            temp=obj.cube(rem);
+            arm=arm+temp;
+            n/=10;
+        }
+        System.out.println("THE ARM IS "+arm);
+        System.out.println("THE n IS "+res2);
+        
+             String res = (arm==res2)? "ITS ARMSTONG NUMBER" : "ITS NOT A ARMSTONG NUMBER";
+             System.out.println(res);
+        
+    }
+    
+}
