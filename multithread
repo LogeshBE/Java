@@ -1,0 +1,110 @@
+
+package multithread;
+
+class A{
+    void fun1()
+    {
+        for(int i=1;i<=5;i++) 
+        {
+            System.out.println(i);
+//           try{ Thread.sleep(500);} catch(Exception e){System.out.println(e);}
+        }
+    }
+}
+class B{
+    void fun2()
+    {
+        for(int i=6;i<=10;i++) 
+        {
+            System.out.println(i);
+             try{ Thread.sleep(500);} catch(Exception e){System.out.println(e);}
+        }
+    }
+}
+class C extends Thread{
+    @Override
+    public void run()
+    {
+        for(int i=11;i<=15;i++) 
+        {
+            System.out.println(i);
+             try{ Thread.sleep(500);} catch(Exception e){System.out.println(e);}
+        }
+    }
+}
+class dummy{
+    int start=16;
+}
+class D extends dummy implements Runnable{
+    @Override
+    public void run()
+    {
+        for(int i=start;i<=20;i++) 
+        {
+            System.out.println(i);
+             try{ Thread.sleep(500);} catch(Exception e){System.out.println(e);}
+        }
+    }
+}
+public class Multithread {
+
+   
+    public static void main(String[] args) throws InterruptedException {
+        
+        A obj1=new A();
+        B obj2=new B();
+        obj1.fun1();
+        obj2.fun2();
+        
+        C obj3=new C();
+        obj3.start();
+        
+        D obj4=new D();
+        Thread t=new Thread(obj4);
+        obj3.join();
+        t.start();
+        t.join();
+        System.out.println(obj3.getName());
+        System.out.println(t.getName());
+        obj3.setName("Thread-C class");
+        t.setName("Thread-t class(obj4)");
+        System.out.println(obj3.getName());
+        System.out.println(t.getName());
+        System.out.println("Done!!");
+        threadclass2 obj5=new threadclass2();
+        obj5.fun1();
+       
+    }
+    
+}
+------------------------------------------------------------------------------
+
+
+package multithread;
+
+public class threadclass2 {
+    static int count=0;
+    void fun1() throws InterruptedException{
+        int boardsize=5;
+        Runnable obj1= () ->{
+            for(int i=0;i<boardsize;i++){
+                System.out.println(" obj1 = "+count);
+                count++;
+            }
+        };
+        Runnable obj2= () ->{
+            for(int i=0;i<boardsize;i++){
+                System.out.println(" obj2 = "+count);
+                count++;
+            }
+        };
+        Thread t1=new Thread(obj1);
+        t1.start();
+        Thread t2=new Thread(obj2);
+        t2.start();
+        t1.join();
+        t2.join();
+        System.out.println("COUNT = "+count);
+    }
+    
+}
