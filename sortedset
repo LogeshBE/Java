@@ -1,0 +1,27 @@
+
+package setcollection;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+
+public class sortedset {
+    void fun()
+    {
+        SortedSet ss=new TreeSet();
+        ss.add(6);
+        ss.add(2);
+        ss.add(1);
+        ss.add(5);
+        ss.add(3);
+        System.out.println(ss);
+        Object a=ss.first();
+        System.out.println("first ="+a);
+        System.out.println("last ="+ss.last());
+        System.out.println("headset ="+ss.headSet(3));
+        System.out.println("tailset ="+ss.tailSet(3));
+        System.out.println("subset ="+ss.subSet(2, 5));
+        
+    }
+    
+}
