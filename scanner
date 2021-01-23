@@ -1,0 +1,17 @@
+
+package iostream;
+
+import java.util.Scanner;
+
+
+public class scanner {
+    void fun(){ 
+        Scanner sc=new Scanner(System.in);
+        String name=sc.nextLine();
+        char Gender=sc.next().charAt(0);
+        int age=sc.nextInt();
+        float weight=sc.nextFloat();
+        System.out.println("Name :"+name+" Gender : "+Gender+" Age : "+age+" Weigth : "+weight);
+    }
+    
+}
