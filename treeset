@@ -1,0 +1,51 @@
+
+package setcollection;
+
+import java.util.Comparator;
+import java.util.TreeSet;
+
+
+public class treeset {
+    void fun()
+    {
+        TreeSet ts=new TreeSet(Comparator.reverseOrder());
+        ts.add(new Integer(5));
+//        ts.add("Logesh");   Treeset & sortedset must be a homogeneous elements only
+        ts.add(2);
+        ts.add(3);
+        ts.add(1);
+        System.out.println(ts);
+        TreeSet ts1=new TreeSet();
+        ts1.add(2);
+        ts1.add(3);
+        ts1.add(1);
+        ts1.add(5);
+        System.out.println(ts1.headSet(3));
+        System.out.println(ts1.tailSet(3));
+        System.out.println(ts1.ceiling(4));
+        System.out.println(ts1.ceiling(6));
+        System.out.println(ts1);
+        System.out.println(ts1.floor(4));
+        TreeSet ts2=new TreeSet();
+        ts2.add(10);
+        ts2.add(20);
+        ts2.add(30);
+        ts2.add(40);
+        System.out.println(ts2);
+        System.out.println(ts2.ceiling(10));
+        System.out.println(ts2.higher(10));
+        System.out.println(ts2.lower(10));
+        System.out.println(ts2.pollFirst());
+        System.out.println(ts2.pollLast());
+        System.out.println(ts2);
+        
+        TreeSet ts3=new TreeSet();
+        ts3.add("Logesh");
+        ts3.add("Logu");
+        ts3.add(new String("Bharani"));
+//        ts3.add(new StringBuffer("Bharani")); String Buffer is not comparable ..in treeset and sortedset elements must be comparable 
+        System.out.println(ts3);
+        
+    }
+    
+}
