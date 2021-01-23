@@ -1,0 +1,32 @@
+
+package crosspattern;
+
+import java.util.Scanner;
+public class Crosspattern {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        String name=s.nextLine();
+        char n[]= name.toCharArray();
+        int i,p,j,i1=0,p1=name.length()-1;
+        for(i=0,p=(name.length())-1;i<name.length()&&p>=0;System.out.println(),i++,p--)
+        {
+            for(j=0;j<name.length();j++)
+            {  if((i!=j)&& (p!=j))  System.out.print(" ");
+               else if(i==j&&j==p)
+                   {   System.out.print(n[i1]);
+                         i1++;
+                         p1--;
+                    }
+               else  if(i==j) 
+                     {   System.out.print(n[i1]);
+                         i1++;
+                      }
+               else if(j==p)
+                     {    System.out.print(n[p1]);
+                          p1--;
+                      }   
+            }
+        }   
+    }
+}
+    
