@@ -1,0 +1,23 @@
+
+package generics;
+class generic<L>
+{
+    
+}
+public class Generics {
+    
+    public static void fun1()
+    {   int a=10;
+        System.out.println(a);
+    }
+    static <L> L fun2(L a)
+    {
+        return a;
+    }
+
+    public static void main(String[] args) {
+        fun1();
+        System.out.println(fun2(5));
+        System.out.println(fun2("Logesh"));
+    }    
+}
