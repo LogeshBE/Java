@@ -1,0 +1,45 @@
+
+package setcollection;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class hashset {
+    void fun()
+    {
+        HashSet hs=new HashSet(); //underlying ds =  hash table---based on hashcode order is maintained
+        hs.add("Logesh");
+        hs.add("Logu");
+        hs.add("Bharani");
+        hs.add(null);
+        System.out.println("hs ="+hs);
+        
+        HashSet hs1=(HashSet) hs.clone();
+        System.out.println("hs1 ="+hs1);
+        hs1.remove("Logu");
+        System.out.println("hs1 ="+hs1);
+        System.out.println("hs ="+hs);
+        hs.removeAll(hs1);
+        
+        System.out.println("hs ="+hs);
+        
+        System.out.println("hs1 contains LOgu : "+hs1.contains("Logu"));
+        hs.add(hs1);
+        hs.addAll(hs1);
+        System.out.println(hs);
+        hs.removeAll(hs1);
+        System.out.println(hs);
+        hs.remove(hs1);
+        System.out.println(hs);
+        hs.retainAll(hs1);
+        System.out.println(hs);
+        HashSet hs3=new HashSet(3, (float) 0.75);
+        hs3.add(3);
+        hs3.add(2);
+        hs3.add(4);
+        System.out.println(hs3.size());
+        hs3.add(5);
+        System.out.println(hs3.add(3)+" ---"+ hs3);
+    }
+    
+}
