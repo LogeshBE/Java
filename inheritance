@@ -1,0 +1,47 @@
+package java1;
+import java.io.*;
+import java.util.*;
+class a
+{  int a=5;
+   
+}
+
+class b extends a
+{ int b=10;
+    void bvalue()
+    { 
+      int z=10+ a;
+    System.out.println(z);}
+}
+class c extends b
+{ int c=a*b;
+   void cvalue()
+   { c=10+b+a;
+   System.out.println(c);}
+}
+public class Java1 {
+    int a,b;
+
+    public static void main(String[] args) {
+       
+        c obj=new c();
+        b obj2=new b();
+        obj2.bvalue();
+        obj.cvalue();
+        Java1 obj3=new Java1();
+        obj3.sum();
+        obj3.multiply();
+        
+    }  
+    
+    public void sum()
+    {  a=5;
+        b=a+5;
+       System.out.println(b);
+    }
+    public void multiply()
+    {  int c=b*a;
+       System.out.println(c);
+    }
+    
+}
