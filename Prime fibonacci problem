@@ -1,0 +1,124 @@
+
+package primefibo;
+
+import java.math.BigInteger;
+import java.util.*;
+
+
+
+public class Primefibo {
+    
+    static ArrayList<Integer> prime(int n1,int n2){
+        
+    ArrayList<Integer> prime1=new ArrayList<>();
+    int i,x,flag=0;
+    for(i=n1;i<=n2;i++,flag=0){
+        for(x=2;x<=i/2;x++){
+            if(i%x==0){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0) prime1.add(i);
+    }
+//    System.out.println("size= "+prime1.size());
+    return prime1;
+    }
+    static ArrayList<Integer> combination(ArrayList<Integer> prime1){
+        
+        ArrayList<Integer> comnum=new ArrayList<>();
+        ArrayList<String> comstr=new ArrayList<>();
+        Iterator<Integer> it1=prime1.iterator();
+        Iterator<Integer> it2=prime1.iterator();
+             while(it1.hasNext()){
+               String str1=Integer.toString(it1.next());
+               while(it2.hasNext()){
+                   String str2=Integer.toString(it2.next());
+                   if(str1.equals(str2)) continue;
+                   else{
+                       String str3=str1+str2;
+                       if(comstr.contains(str3)==false) comstr.add(str3);
+                   }
+               }
+               it2=prime1.iterator();
+             }
+        Iterator<String> it3=comstr.iterator();
+        while(it3.hasNext()){
+            comnum.add(Integer.parseInt(it3.next()));
+        }
+//        System.out.println("size of com = "+comnum.size());
+        return comnum;
+    }
+
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int n1=sc.nextInt();
+         int n2=sc.nextInt();
+         if(n2-n1>=35){
+              ArrayList<Integer> prime1=new ArrayList<>();
+              prime1=prime(n1,n2);
+//               Iterator it1=prime1.iterator();
+//             while(it1.hasNext()){
+//               System.out.print(it1.next()+" - ");
+//             }
+//             System.out.println();
+              ArrayList<Integer> comnum=combination(prime1);
+//              Iterator it4=comnum.iterator();
+//             while(it4.hasNext()){
+//               System.out.print(it4.next()+" - ");
+//             }
+//             System.out.println();
+               ArrayList<Integer> comprime=new ArrayList<>();
+               Iterator<Integer> it=comnum.iterator();
+              while(it.hasNext()){
+               int a=it.next();
+               int x,flag=0;
+                   for(x=2;x<=a/2;x++){
+                       if(a%x==0){
+                           flag=1;
+                           break;
+                        }
+                    }
+                    if(flag==0) comprime.add(a);
+             }
+//             System.out.println("comprime size= "+comprime.size());
+//             Iterator it3=comprime.iterator();
+//             while(it3.hasNext()){
+//               System.out.print(it3.next()+" - ");
+//             }
+             String minni=Integer.toString(Collections.min(comprime));
+             String maxxi=Integer.toString(Collections.max(comprime));
+             BigInteger min=new BigInteger(minni);
+             BigInteger max=new BigInteger(maxxi);
+             BigInteger temp=new BigInteger("0");
+//             max=min;
+             int size=comprime.size();
+//             System.out.println();
+//             System.out.println("MIN is = "+min);
+//             System.out.println("MAX is = "+max);
+//             System.out.println("size is = "+size);
+             if(size==2) System.out.print(max.add(min));
+             else{
+             for(int i=1;i<=size-2;i++){
+                 temp=max;
+//                 System.out.println("min -"+min);
+//                 System.out.println("max -"+max);
+                 max=max.add(min);
+//                 System.out.println("total =="+max);
+                 min=temp;
+             }
+             System.out.print( max);
+             }
+         }
+         else{
+             int x=n1,y=n2;
+             for(int i=n1;i<=n2-2;i++){
+                 int n3=y;
+                 y=x+y;
+                 x=n3;
+             }
+             System.out.print(y);
+         }
+    }
+    
+}
