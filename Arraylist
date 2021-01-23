@@ -20,3 +20,90 @@ public class ArrayListCollection {
     }
     
 }
+------------------------------------------------------------------------------------------
+
+package list;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Arraylist {
+    
+     void fun1()
+    {  
+        List<Integer> obj1=new ArrayList<Integer>();
+        obj1.add(1);
+        obj1.add(2);
+        obj1.add(3);
+        obj1.add(4);
+        obj1.add(5);
+        System.out.println(obj1);
+        
+        obj1.remove(3); //remove the 3rd index value
+        obj1.add(0,7); // replace the index 0 value to 7
+        obj1.add(null); // List can accept the null value also
+        obj1.add(null);
+        obj1.add(Integer.MAX_VALUE);
+        obj1.add(Integer.sum(2, 2));
+        obj1.set(6,0);
+        System.out.println(obj1);
+        
+        List<Number> obj2=new ArrayList<>();
+        obj2.add(8.4);
+        obj2.add(4);
+        System.out.println("OBJ2 = "+obj2);
+        
+        obj1.removeAll(obj2);
+        System.out.println(obj1);
+        
+        obj2.addAll(obj1);                              // obj2=obj2+obj1
+        System.out.println(" addall obj2= "+obj2);
+        
+        obj2.removeAll(obj1);                            //it removes all the elements that present from obj1 to obj2
+        System.out.println("removeall obj2= "+obj2);
+        
+        obj1.add(4);
+        obj2.add(7);
+        obj1.add(2, Integer.SIZE);
+        obj2.retainAll(obj1);                             //it retains and stores the common elements of obj2 and obj1 to obj2 
+        System.out.println("obj2= "+obj2);
+        
+//         ArrayList obj3=new ArrayList(obj1.subList(2,5));
+        List obj3=new ArrayList();
+        obj3=obj1.subList(2,5);             //obj3= index of obj1 (2) to index of obj1 (5) if any modification made in obj1 it reflects obj3 and vic versa
+        System.out.println("obj1= "+obj1);
+        System.out.println("Obj3 ="+obj3);
+        obj3.set(2, 1);                         
+        System.out.println("obj1= "+obj1);
+        obj1.set(2, 4);                      //only the unstructural changes like set the done in obj1. if we do any structural changes like add,delete in obj1 aftrer creating the sublist then if we want access any method in sublist it throws an concurrentModification Exception
+        System.out.println("obj3= "+obj3);
+//        obj1.add(8);           
+//        System.out.println("obj1= "+obj1);
+//        System.out.println("obj3= "+obj3);
+        
+       System.out.println("INDEX OF 8 IN OBJ1 = " + obj1.indexOf(1));  // return -1 means not present 
+        System.out.println("Last index is = "+obj1.lastIndexOf(1));
+        System.out.println(obj1.contains(1));
+        System.out.println("Index value of 2 = " +obj1.get(2) +"  ---- " + obj1);
+        System.out.println(obj1.isEmpty());
+         
+        Iterator it=obj1.iterator();
+        System.out.println(it.next());
+        System.out.println(it.next());
+       it.remove();
+           System.out.println(obj1);
+           it=obj1.iterator();             // there is no reset method in iterator the only way is to call again the iterator() then it starts from begining
+           System.out.println(it.next());
+           while (it.hasNext()) System.out.println(it.next());
+           
+      //   for(int a : obj1) System.out.println(a);  ////its shows the null pointer exception ,because the list contains null value
+        obj1.remove(5);
+        for(int a : obj1) System.out.println(a);
+        
+        System.out.println("_____________________________________________________________________");
+
+        
+    }
+    
+}
