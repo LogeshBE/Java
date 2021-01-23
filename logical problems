@@ -1,0 +1,157 @@
+
+package wipromilestone;
+
+public class Wipromilestone {
+
+    public static void main(String[] args) {
+//        gencode obj1=new gencode();
+//        System.out.println("----> "+ obj1.findcode("World Wide Web"));
+//        System.out.println("----> "+ obj1.findcode("Hello world"));
+        stringnumberaddition obj2=new stringnumberaddition();
+        System.out.println("<---->"+obj2.addition("1000","10000"));
+        possiblewords obj3=new possiblewords();
+        System.out.println("---> " +obj3.possiblewords("Fi_er", "Fever:filer:Filter:Fixer:fiber:fibre:tailor:offer"));
+    }
+    
+}
+---------------------------------------------------------------------------------------------------------------
+
+
+package wipromilestone;
+//World wide web
+
+public class gencode {
+    public int findcode(String input1){
+        String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String[] arr=input1.split(" ");
+        StringBuffer sb=new StringBuffer();
+        int sum=0,a=0,b=0,first,last;
+        for(int i=0;i<arr.length;i++){
+            String str=arr[i].toUpperCase();
+            first=0;last=str.length()-1;sum=0;
+//            System.out.println(" str= "+str);
+            if(str.length()%2==0) {
+                while(first<last){
+                    a=alphabet.indexOf(str.charAt(first))+1;
+                    b=alphabet.indexOf(str.charAt(last))+1;
+//                    System.out.println(" --/ a= "+a+" b = "+b);
+                    a=a-b;
+                    if(a<0) a=a*-1;
+                    sum=sum+a;
+//                    System.out.println("first = "+first+" last = "+last+" sum = "+sum);
+                    first++;last--;
+                }
+            }
+            else{
+                while(first!=last){
+                    a=alphabet.indexOf(str.charAt(first))+1;
+                    b=alphabet.indexOf(str.charAt(last))+1;
+//                    System.out.println(" a= "+a+" b = "+b);
+                    a=a-b;
+                    if(a<0) a=a*-1;
+//                    System.out.println(" a== "+a);
+                    sum=sum+a;
+//                    System.out.println("first = "+first+" last = "+last+" sum = "+sum);
+                    first++;last--;
+                }
+                a=0;
+                int mid=str.length()/2;
+//                System.out.println(" mid = "+mid);
+                a=alphabet.indexOf(str.charAt(mid))+1;
+                sum=sum+a;
+//                System.out.println(" --sum = "+sum);
+            }
+            sb.append(sum);
+        }
+      return Integer.valueOf(sb.toString());
+    }
+}
+-----------------------------------------------------------------------------------------------------------------
+
+package wipromilestone;
+
+public class possiblewords {
+    String possiblewords(String input1,String input2){
+        input1=input1.toUpperCase();
+        input2=input2.toUpperCase();
+        String[] arr=input2.split(":");
+        StringBuffer sb=new StringBuffer();
+        for(int i=0;i<arr.length;i++){
+            if(arr[i].length()==input1.length()){
+                int change=0;
+                for(int j=0;j<input1.length();j++){
+                    if(arr[i].charAt(j)==input1.charAt(j)) continue;
+                    else if(input1.charAt(j)=='_') continue;
+                    else {
+                        change=1;
+                        break;
+                    }
+                }
+                if(change==0) sb.append(arr[i]+":");
+            }
+        }
+        if(sb.length()>0) return sb.substring(0, sb.length()-1).toString();
+        return "ERROR-009";
+    }
+}
+-----------------------------------------------------------------------------
+
+package wipromilestone;
+
+public class stringnumberaddition {
+    String addition(String input1,String input2){
+        StringBuilder sbul1=new StringBuilder(),sbul2=new StringBuilder();
+        sbul1.append(input1).reverse();
+        sbul2.append(input2).reverse();
+        input1=sbul1.toString();input2=sbul2.toString();
+        String n1,n2;
+        if(input1.length()<input2.length()) {
+            n1=input2;
+            n2=input1;
+        }
+        else {
+            n1=input1;
+            n2=input2;
+        }
+        StringBuffer sb=new StringBuffer();
+        int carry=0,a=0,b=0,c=0,res=0;
+        for(int i=0;i<n1.length();i++){
+            while(i<n2.length()){
+                 a=Integer.parseInt(String.valueOf(n1.charAt(i)));
+                 b=Integer.parseInt(String.valueOf(n2.charAt(i)));
+                 c=a+b+carry;
+                if(c>=10){
+                    res=c%10;
+                    carry=c/10;
+                    
+                }
+                else {
+                    carry=0;
+                    res=c;
+                }
+                sb.append(res);
+//                 System.out.println(" i= "+i+" a = "+a +" b="+b+" c="+res+ " carry= "+carry);
+                i++;
+            }
+            if(i<n1.length()){
+            a=Integer.parseInt(String.valueOf(n1.charAt(i)));
+            c=carry+a;
+//                System.out.println(" CC= "+c);
+            if(c>=10) {
+                res=c%10;
+                carry=c/10;
+            }
+            else {
+                carry=0;
+                res=c;
+            }
+            sb.append(res);
+//             System.out.println("--> a = "+a+" c="+res+ " carry= "+carry);
+            }
+        }
+        if(carry!=0) sb.append(carry);
+        sbul1.setLength(0);
+        sbul1.append(sb).reverse();
+        return sbul1.toString();
+    }
+}
