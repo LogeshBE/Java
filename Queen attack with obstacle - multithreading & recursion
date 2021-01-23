@@ -1,0 +1,191 @@
+
+package queenattackwithobstacle;
+import java.util.*;
+    
+
+public class Queenattackwithobstacle {
+    static int numberofPosition(int n, int k, int x, 
+				int y, int obstPosx[], int obstPosy[]) 
+	{ 
+		
+		// d11, d12, d21, d22 are for diagnoal distances. 
+		// r1, r2 are for vertical distance. 
+		// c1, c2 are for horizontal distance. 
+		int d11, d12, d21, d22, r1, r2, c1, c2; 
+	
+		// Initialise the distance to end of the board. 
+		d11 = Math.min( x-1, y-1 ); 
+		d12 = Math.min( n-x, n-y ); 
+		d21 = Math.min( n-x, y-1 ); 
+		d22 = Math.min( x-1, n-y ); 
+	
+		r1 = y-1; 
+		r2 = n-y; 
+		c1 = x-1; 
+		c2 = n-x; 
+	
+		// For each obstacle find the minimum distance. 
+		// If obstacle is present in any direction, 
+		// distance will be updated. 
+		for (int i = 0; i < k; i++) 
+		{ 
+			if ( x > obstPosx[i] && y > obstPosy[i] && 
+					x-obstPosx[i] == y-obstPosy[i] ) 
+				d11 = Math.min(d11, x-obstPosx[i]-1); 
+	
+			if ( obstPosx[i] > x && obstPosy[i] > y && 
+					obstPosx[i]-x == obstPosy[i]-y ) 
+				d12 = Math.min( d12, obstPosx[i]-x-1); 
+	
+			if ( obstPosx[i] > x && y > obstPosy[i] && 
+					obstPosx[i]-x == y-obstPosy[i] ) 
+				d21 = Math.min(d21, obstPosx[i]-x-1); 
+	
+			if ( x > obstPosx[i] && obstPosy[i] > y && 
+						x-obstPosx[i] == obstPosy[i]-y ) 
+				d22 = Math.min(d22, x-obstPosx[i]-1); 
+	
+			if ( x == obstPosx[i] && obstPosy[i] < y ) 
+				r1 = Math.min(r1, y-obstPosy[i]-1); 
+	
+			if ( x == obstPosx[i] && obstPosy[i] > y ) 
+				r2 = Math.min(r2, obstPosy[i]-y-1); 
+	
+			if ( y == obstPosy[i] && obstPosx[i] < x ) 
+				c1 = Math.min(c1, x-obstPosx[i]-1); 
+	
+			if ( y == obstPosy[i] && obstPosx[i] > x ) 
+				c2 = Math.min(c2, obstPosx[i]-x-1); 
+		} 
+	
+		return d11 + d12 + d21 + d22 + r1 + r2 + c1 + c2; 
+	} 
+    
+    static int count=0;
+    public static void main(String[] args) throws InterruptedException {
+        Scanner s=new Scanner(System.in);
+        int boardsize=s.nextInt();
+        int ocount=s.nextInt();
+        int qr=s.nextInt();
+        int qc=s.nextInt();
+        int[] or=new int[ocount];
+        int[] oc=new int[ocount];
+        for(int i=0;i<ocount;i++){
+            or[i]=s.nextInt();
+            oc[i]=s.nextInt();
+        }
+        System.out.println("count = "+numberofPosition(boardsize, ocount, qr, 
+				qc, or, oc));
+ /*       int[][] a=new int[boardsize][boardsize];
+        int ocount=s.nextInt();
+        int qr=boardsize-s.nextInt(),qc=s.nextInt()-1;
+        for(int i=0;i<ocount;i++){
+            a[boardsize-s.nextInt()][s.nextInt()-1]=-1;
+        }
+        for(int i=0;i<a.length;i++,System.out.println())
+            for(int j=0;j<a.length;j++) System.out.print(a[i][j]+" ");
+        Runnable cup= () ->{
+            int r=qr,c=qc;
+            while(true){
+                r--;
+                if(r<0) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable cdn= () ->{
+            int r=qr,c=qc;
+            while(true){
+                r++;
+                if(r>boardsize-1) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable rr= () ->{
+            int r=qr,c=qc;
+            while(true){
+                c++;
+                if(c>boardsize-1) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable rl= () ->{
+            int r=qr,c=qc;
+            while(true){
+                c--;
+                if(c<0) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable ldd= () ->{
+            int r=qr,c=qc;
+            while(true){
+                r++;
+                c--;
+                if(c<0 || r>boardsize-1) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable rdd= () ->{
+            int r=qr,c=qc;
+            while(true){
+                r++;
+                c++;
+                if(c>boardsize-1 || r>boardsize-1) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable rdu= () ->{
+            int r=qr,c=qc;
+            while(true){
+                r--;
+                c++;
+                if(r<0 || c>boardsize-1) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Runnable ldu= () ->{
+            int r=qr,c=qc;
+            while(true){
+                r--;
+                c--;
+                if(r<0 || c<0) break;
+                if(a[r][c]==-1) break;
+                else count++;
+            }
+        };
+        Thread t1=new Thread(cup);
+        t1.start();
+        Thread t2=new Thread(cdn);
+        t2.start();
+        Thread t3=new Thread(rr);
+        t3.start();
+        Thread t4=new Thread(rl);
+        t4.start();
+        Thread t5=new Thread(ldd);
+        t5.start();
+        Thread t6=new Thread(rdd);
+        t6.start();
+        Thread t7=new Thread(rdu);
+        t7.start();
+        Thread t8=new Thread(ldu);
+        t8.start();
+        t1.join();
+        t2.join();
+        t3.join();
+        t4.join();
+        t5.join();
+        t6.join();
+        t7.join();
+        t8.join();
+        System.out.println("COUNT = "+count);   */
+        
+    }
+    
+}
