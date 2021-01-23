@@ -1,0 +1,76 @@
+
+package pkginterface;
+
+
+
+class xy
+{
+    static int g=6;
+}
+
+interface gparent
+{
+    int d=5;
+   // void fun1();
+}
+interface parent1 extends gparent
+{
+    int a=10+d;
+}
+
+
+interface parent2
+{
+    int b=20;
+}
+
+
+ class Interface extends xy implements parent1,parent2{
+    /*       void fun1()
+        {
+            System.out.print("LogesH");
+        }   */
+
+    public static void main(String[] args) {
+        int c=a+b;
+        System.out.println(c);
+          System.out.println(g);
+         }  
+    
+}
+-----------------------------------------------------------------------------------------
+
+
+package interface2;
+
+interface Items{
+    int a=5;
+    void colour();
+    void height(); 
+    void xy();
+    
+}
+
+
+public class Interface2 implements Items{
+
+ 
+    public static void main(String[] args) {
+        Interface2 obj=new Interface2();
+        obj.colour();
+        obj.height();
+//        obj.xy();
+    }
+    public void colour() {
+        System.out.println("The value of a is "+a);
+       System.out.println("Blue");
+    }
+     public void xy()
+   {
+       System.out.println("JGFJF");
+   }
+    public void height() {
+        System.out.println("0.25 feet");
+    }
+    
+}
