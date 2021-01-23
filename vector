@@ -1,0 +1,57 @@
+package list;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Vector;
+import java.util.List;
+import java.util.ListIterator;
+
+public class vector {
+    
+    public void fun1()
+    {
+        List obj1=new Vector(); // Vector is as like a ArrayList and its a Sysnchronized (its used in non thread Environment)
+        obj1.add(1);
+        obj1.add(2);
+        obj1.add(2,3);
+        obj1.add(4);
+        obj1.add(5);
+        System.out.println(obj1);
+        Iterator it=obj1.iterator();       // it can traverse the collection in only forward direction 
+                                           //and it does not contain reset method if we want to get start again then only to call again obj1.iterator()                                     
+        System.out.println(it.hasNext());  // hasNext() is a boolen type
+        System.out.println(it.next());
+        System.out.println(it.next());
+        System.out.println(it.next());
+        System.out.println(it.next());     // its is used to store the current data to the iterator object and the pointer moves to the next data
+        System.out.println(it.next());
+        it.remove();                      // remove method is used to remove the current object or data that store in the itrator object. 
+         System.out.println(obj1);
+         
+         ListIterator LIT=obj1.listIterator(); // In listiterator we can traverse the collection in both direction
+         System.out.println(LIT.hasPrevious());    
+         System.out.println(LIT.hasNext());
+         System.out.println(LIT.next());
+         System.out.println(LIT.hasPrevious()); 
+         System.out.println(LIT.previous());   // previous method the pointer goes previuos point in the collection and store that value in the listiterartor object
+         System.out.println(obj1);
+         LIT.remove();
+         System.out.println(LIT.next());
+         System.out.println(LIT.next());
+         LIT.add(10);                        // add method is used to add the object or data in the current pointer location 
+                                             //and after the addition of object then the pointer of LIT pointer location shift one step forward if its available.
+         System.out.println(LIT.next());
+         
+         System.out.println(obj1);
+         System.out.println(obj1.indexOf(10));
+         
+         LIT=obj1.listIterator();
+         LIT.next();
+         LIT.next();
+         System.out.println(LIT.nextIndex());
+         System.out.println(LIT.previousIndex());
+         System.out.println(LIT.next());
+         
+    }
+    
+}
