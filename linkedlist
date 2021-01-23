@@ -1,0 +1,28 @@
+
+package list;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class linkedlist {
+    
+    public void fun1()
+    {
+        LinkedList<Number> obj1=new LinkedList<>();
+        obj1.add(1);
+        obj1.add(2);
+        System.out.println(obj1);
+        List<Number> obj2=new LinkedList<>();
+        obj2.add(3);
+        obj2.addAll(obj2);
+        System.out.println(obj2);
+        obj1.addFirst(0);
+        System.out.println(obj1);
+        System.out.println(obj1.peek());
+        System.out.println(obj1.pollLast() +" "+ obj1);
+        obj1.add(2);
+        obj1.push(-1);
+        System.out.println(obj1);
+    }
+    
+}
