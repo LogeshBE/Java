@@ -1,0 +1,83 @@
+
+package java8functions;
+import java.util.function.*;
+
+public class Java8functions {
+
+    public static void main(String[] args) {
+        Predicate<String> pre1=p->{  boolean a;
+                                    System.out.println(p);
+                                    a=p.length()==6;
+                                    return a;};
+//        if(pre1.test("Logesh")) System.out.println("Its length is equal to 6");
+        Predicate<Integer> pre2=p-> p%2==0;
+        Predicate<Integer> pre3=p-> p>3;
+//        int[] arr={1,2,3,4,5,6,7,8,9,10};
+//        for(int a:arr)
+//            if(pre2.and(pre3).test(a)) System.out.println("a = "+a);
+////        for(int a:arr) if(pre2.negate().test(a)) System.out.println("-a = "+a);
+////        for(int a:arr) if(pre2.or(pre3).test(a)) System.out.println("a| = "+a);
+        
+        Function<String,Integer> f1=s-> s.length();
+        Function<Integer,Integer> f2=x->{  x=x*2;
+                                            return x+2;
+                                         };
+        Function<Integer,String> f3=x-> x.toString();
+//        System.out.println("The Length of the String is "+f1.apply("Logesh"));
+//        System.out.println("The Multiple of String Length with 2 and add + 2 ="
+//                +f1.andThen(f2).apply("Logesh"));
+//        System.out.println("Convert the Integer to String = "+f3.compose(f2).apply(5)+6);
+        Consumer<String> c1=s->{  
+                                  System.out.println("Length of the String is "+s.length());
+                                };
+        Consumer<String> c2=s->System.out.println(s.toLowerCase());
+//        c1.accept("Logesh");
+//        c1.andThen(c2).accept("Logesh");
+        Supplier<Integer> sup=()->{ int m=5,n=5;
+                                    return m+n;
+                                  };
+//        System.out.println("M + N = "+sup.get());
+        BiPredicate<Integer,Integer> bp=(a,b)->a==b;
+//        System.out.println("a== b : "+bp.test(5, 5));
+        BiFunction<Integer,Integer,String> bf=(a,b)->{ return a.toString()+b.toString(); 
+                                                      };
+//        System.out.println("Concatination of two Integer is "+bf.apply(5,5));
+        BiConsumer<String,String> bc=(s1,s2) -> System.out.println(s2+s1);
+//        bc.accept("Logesh","Hai ");
+        IntPredicate ip=a->a==10; //LongPredicate // DoublePredicate
+//        System.out.println("a==10 : "+ip.test(10));
+        IntFunction<Integer> intf=a->a*2;//DoubleFunction//LongFunction
+//        System.out.println("a*2 = "+intf.apply(10));
+//        IntConsumer ic=a->System.out.println("a = "+a);//LongFunction//DoubleFunction
+//        ic.accept(10);
+//        IntConsumer ic=a->System.out.println("A= "+a); //LongConsumer//DoubleConsumer
+//        ic.accept(10);
+        IntSupplier is=()->{int a=10;   //Longsupplier//DoubleSupplier
+                            return a;
+                             };
+//        BooleanSuppier
+//        System.out.println("A = "+is.getAsInt() );
+        ToIntFunction<Integer> tif=a->a*2;
+//        System.out.println("a*2 = "+tif.applyAsInt(10));
+        ToDoubleFunction<Double> tdf=a->a*2;
+//        System.out.println("a*2 = "+tdf.applyAsDouble(10.0));
+        ToLongFunction<Integer> tlf=a->a*2;
+//        System.out.println("a*2 = "+tlf.applyAsLong(10));
+        ToIntBiFunction<Integer,Integer> tibf=(a,b)->a+b;//ToLongFunction//ToDoubleFunction
+//        System.out.println("A + B = "+tibf.applyAsInt(10, Integer.SIZE));
+        IntToDoubleFunction itdf=a->a; //IntToLong//DoubleToInt//DoubleToLong//LongToInt//LongToDouble
+//        System.out.println("A as Double = "+itdf.applyAsDouble(10));
+        ObjDoubleConsumer<Integer> odc=(a,b)->System.out.println("a+b = "+(a+b));
+        //ObjIntConsumer//ObjLongConsumer
+//        odc.accept(5,4.0);
+        UnaryOperator<String> uo=s->s+s;
+//        System.out.println(" S + S = "+uo.apply("Logesh"));
+        IntUnaryOperator iuo=a->a+a;//LongUnaryOperator//DoubleUnaryOperator
+//        System.out.println("a+a= "+iuo.applyAsInt(5));
+        BinaryOperator<Integer> bo=(a,b)->a+b;
+//        System.out.println("A+ B = "+bo.apply(5,6));
+        IntBinaryOperator ibo=(a,b)->a+b; //DoubleBinaryOperator//LongBinaryOperator
+        System.out.println("A+B="+ibo.applyAsInt(2,3));
+    } 
+    
+}
