@@ -1,0 +1,21 @@
+
+package mapproblem;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Mapproblem {
+
+    public static void main(String[] args) {
+        
+        Map<Character,Integer> hashmap=new LinkedHashMap<>();
+        hashmap.put('H', null);
+        hashmap.put('E', 1);
+        hashmap.put('L', 1);
+        hashmap.put('L', 1);
+        hashmap.put('O', 1);
+        int a=hashmap.get('H');
+        System.out.println("#### "+a);
+    }
+    
+}
