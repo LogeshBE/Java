@@ -1,0 +1,45 @@
+
+package iostream;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+public class file {
+    
+    void fun() throws IOException
+    {   
+        String filepath="E:\\java program\\sample_files\\sample2.txt";
+        File f=new File(filepath);
+        
+        if(f.createNewFile()) System.out.println("File is successfully Created");
+        else System.out.println("File is not created");
+                
+        System.out.println("File is present : "+f.exists());
+        System.out.println("File name is : "+f.getName());
+        System.out.println("File absolute path : "+f.getAbsolutePath());
+        System.out.println("File path is : "+f.getPath());
+        System.out.println("File canonical path : "+f.getCanonicalPath());
+        System.out.println("File path : "+f.getPath());
+        System.out.println("File can readable : "+f.canRead());
+        System.out.println("File is writable : "+f.canWrite());
+        System.out.println("File length in bytes : "+f.length());
+        System.out.println("File parent file is : "+f.getParent());
+        
+        FileWriter fw=new FileWriter(filepath);
+        fw.write("Hello Logesh, U R BEST");
+        fw.close();
+        
+        FileReader fr=new FileReader(filepath);
+        int s;
+        while((s=fr.read())!=-1) System.out.println("The content of the file is : "+(char)s);  
+        fr.close();
+        
+        f.delete();
+        
+                
+    }
+    
+}
